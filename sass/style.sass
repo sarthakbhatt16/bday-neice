@@ -1,0 +1,78 @@
+@import "compass/reset"
+@import "compass/css3"
+@import url("https://fonts.googleapis.com/css?family=Grand+Hotel")
+
+@keyframes float
+	from
+		bottom: -30%
+	to
+		bottom: 150%
+html, body
+	width: 100%
+	height: 100%
+	overflow: hidden
+body
+	font-family: "Grand Hotel"
+	color: white
+ul
+	width: 100%
+	height: 100%
+	background: #90d9ff
+	li
+		width: 100%
+		height: 100%
+		>div
+			position: absolute
+			
+		.cloud1
+			top: 10%
+			left: 10%
+			img
+				width: 100px
+		.cloud2
+			top: 30%
+			left: 70%
+			img
+				width: 150px
+		.cloud3
+			top: 70%
+			left: 30%
+			img
+				width: 200px
+		.title
+			width: 100%
+			text-align: center
+			top: 300px
+			font-size: 80px
+			+text-shadow(rgba(0, 0, 0, 0.2) 2px 2px 2px)
+		.balloon
+			background: rgba(212,48,71,0.8)
+			+border-radius(100%)
+			+box-shadow(rgba(0, 0, 100, 0.2) -5px -5px 10px inset)
+			&::after
+				content: ''
+				width: 10px
+				height: 10px
+				position: absolute
+				border-bottom: 10px solid rgba(212,48,71,0.8)
+				border-left: 5px solid transparent
+				border-right: 5px solid transparent
+				bottom: -5px
+				left: 50%
+				margin-left: -10px
+			&::before
+				content: ''
+				width: 1px
+				height: 200px
+				position: absolute
+				bottom: -200px
+				left: 50%
+				background: white
+@for $i from 0 to 10
+	$duration: random(30)+10s
+	.balloon#{$i}
+		width: (10*$i)+50px
+		height: ((10*$i)+50px)*1.3
+		left: random(100)+0%
+		animation: float $duration linear 0s infinite normal
+
